@@ -1,0 +1,38 @@
+@mixin position($pos, $x, $y, $ox: 0, $oy: 0) {
+    @if $pos == topleft {
+        margin-left: $ox;
+        margin-top: $oy;
+        left: $x;
+        top: $y;
+    } @else if $pos == topright {
+        margin-right: $ox;
+        margin-top: $oy;
+        right: $x;
+        top: $y;
+    } @else if $pos == bottomleft {
+        margin-bottom: $oy;
+        margin-left: $ox;
+        bottom: $y;
+        left: $x;
+    } @else if $pos == bottomright {
+        margin-bottom: $oy;
+        margin-right: $ox;
+        bottom: $y;
+        right: $x;
+    }
+}
+
+@mixin pos-absolute($pos, $x, $y, $ox: 0, $oy: 0) {
+    @include position($pos, $x, $y, $ox, $oy);
+    position: absolute;
+}
+
+@mixin pos-fixed($pos, $x, $y, $ox: 0, $oy: 0) {
+    @include position($pos, $x, $y, $ox, $oy);
+    position: fixed;
+}
+
+@mixin pos-relative($pos, $x, $y, $ox: 0, $oy: 0) {
+    @include position($pos, $x, $y, $ox, $oy);
+    position: relative;
+}
